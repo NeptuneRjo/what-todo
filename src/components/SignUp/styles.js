@@ -15,7 +15,7 @@ export default makeStyles(() => ({
         fontWeight: 'bold',
         fontSize: '2.5em',
         width: '500px',
-        padding: '3rem'
+        paddingBottom: '1rem'
     },
     content: {
         display: 'flex',
@@ -24,7 +24,8 @@ export default makeStyles(() => ({
         background: '#fff',
         width: '500px',
         borderRadius: '8px',
-        boxShadow: '2px 2px 12px #00000'
+        boxShadow: '2px 2px 12px #00000',
+        paddingTop: '1rem'
     },
     textField: {
         width: '350px',
@@ -35,7 +36,7 @@ export default makeStyles(() => ({
         display: 'flex',
         gap: '2rem',
         justifyContent: 'flex-end',
-        margin: '3rem 0',
+        margin: '2rem 0',
         width: '350px'
     }
 }))
