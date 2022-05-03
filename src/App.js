@@ -1,17 +1,21 @@
 import React from 'react'
 import './App.css'
+
 import { initializeApp } from 'firebase/app'
 import {
     getFirestore, collection, addDoc,
     serverTimestamp
 } from 'firebase/firestore'
+
 import { 
     getAuth,
     createUserWithEmailAndPassword,
     signOut, signInWithEmailAndPassword
 } from 'firebase/auth'
 
-import { SignUpForm } from './components'
+import { SignUpForm, SignIn } from './components'
+
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 
 const App = () => {
     
@@ -34,7 +38,12 @@ const App = () => {
     const colRef = collection(db, 'todos')
 
     return (
-        <div><SignUpForm auth={auth} /></div>
+        <Router>
+            <Routes>
+                <Route path='/sign-up' element={<SignUpForm auth={auth} />}/>
+                <Route path='/sign-in' element={<SignIn auth={auth} />}/>
+            </Routes>
+        </Router>
     )
 }
 
