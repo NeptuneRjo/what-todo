@@ -1,10 +1,13 @@
 import React from 'react'
 import { initializeApp } from 'firebase/app'
 import {
-    getFirestore
+    getFirestore, collection, addDoc,
+    serverTimestamp
 } from 'firebase/firestore'
 import { 
-    getAuth
+    getAuth,
+    createUserWithEmailAndPassword,
+    signOut, signInWithEmailAndPassword
 } from 'firebase/auth'
 
 const App = () => {
@@ -23,6 +26,9 @@ const App = () => {
     // Initialized Firebase services
     const db = getFirestore();
     const auth = getAuth();
+
+    // Database reference (todos)
+    const colRef = collection(db, 'todos')
 
     return (
         <div>App</div>
