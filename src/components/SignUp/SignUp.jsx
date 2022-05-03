@@ -11,6 +11,7 @@ import {
 
 const SignUp = ({ auth }) => {
 
+    // Initializes the styles file to be used as a class
     const classes = useStyles()
 
     const form = document.querySelector('#signup')
@@ -18,6 +19,7 @@ const SignUp = ({ auth }) => {
     const signUpUser = (e) => {
         e.preventDefault()
 
+        // Gets the values from the email and password textfields
         const email = form.email.value
         const password = form.password.value
 
