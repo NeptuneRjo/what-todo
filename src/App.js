@@ -1,4 +1,5 @@
 import React from 'react'
+import './App.css'
 import { initializeApp } from 'firebase/app'
 import {
     getFirestore, collection, addDoc,
@@ -9,6 +10,8 @@ import {
     createUserWithEmailAndPassword,
     signOut, signInWithEmailAndPassword
 } from 'firebase/auth'
+
+import { SignUpForm } from './components'
 
 const App = () => {
     
@@ -31,7 +34,7 @@ const App = () => {
     const colRef = collection(db, 'todos')
 
     return (
-        <div>App</div>
+        <div><SignUpForm auth={auth} /></div>
     )
 }
 
