@@ -4,11 +4,16 @@ import useStyles from './styles'
 import Todo from './Todo/Todo'
 
 import {
-    TextField, Stack,
+    TextField, Stack, Box,
     ButtonGroup, Button, Typography
 } from '@mui/material'
 
-const Todos = () => {
+import {
+    addDoc, serverTimestamp,
+    onSnapshot, doc, query, orderBy
+} from 'firebase/firestore'
+
+const Todos = ({ colRef, db }) => {
 
     const classes = useStyles()
     const [display, setDisplay] = useState('All')
@@ -19,9 +24,35 @@ const Todos = () => {
         'Mow the lawn', 
     ]
 
+    const pushTodoToFirebase = (e) => {
+        const form = document.querySelector('#form')
+        e.preventDefault()
+
+        addDoc(colRef, {
+            todo: form.todo.value,
+            completed: false,
+            createdAt: serverTimestamp()
+        })
+        .then(() => {
+            form.reset()
+        })
+    }
+
     const setTodosDisplay = (display) => {
         setDisplay(display)
     }
+
+    const q = query(colRef, orderBy('createdAt'))
+
+    onSnapshot(q, (snapshot) => {
+        let todos = []
+
+        snapshot.docs.forEach((doc) => {
+            todos.push({...doc.data(), id: doc.id})
+        })
+
+        console.log(todos)
+    })
 
     return (
         <main className={classes.main}>
@@ -33,16 +64,27 @@ const Todos = () => {
                 {display}<br />
                 Todos
             </Typography>
-            <TextField
-                required
-                id="outlined-required"
-                label="What Todo"
-                placeholder={placeholderTodos[Math.floor(Math.random() * placeholderTodos.length)]}
-                className={classes.input}
-                inputProps={{
-                    className: classes.input
-                }}
-            />
+            <form 
+                className={classes.inputContainer} 
+                id='form'
+            >
+                <TextField
+                    required
+                    id="outlined-required"
+                    label="What Todo"
+                    placeholder={placeholderTodos[Math.floor(Math.random() * placeholderTodos.length)]}
+                    className={classes.input}
+                    name='todo'
+                />
+                <Button 
+                    variant='outlined'
+                    type='submit'
+                    onClick={(e) => pushTodoToFirebase(e)}
+                >
+                    Submit
+                </Button>
+            </form>
+
             <Stack
                 direction='column'
                 spacing={2}

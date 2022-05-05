@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import useStyles from './styles'
 
 import { 
@@ -9,23 +9,24 @@ import {
     Button, TextField, Typography,
 } from '@mui/material'
 
+import { useNavigate } from "react-router-dom";
+
 const SignUp = ({ auth }) => {
 
     // Initializes the styles file to be used as a class
     const classes = useStyles()
+    let navigate = useNavigate()
 
-    const form = document.querySelector('#signup')
+    const [emailValue, setEmailValue] = useState('')
+    const [passwordValue, setPasswordValue] = useState('')
+
 
     const signUpUser = (e) => {
         e.preventDefault()
 
-        // Gets the values from the email and password textfields
-        const email = form.email.value
-        const password = form.password.value
-
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((cred) => {
-                form.reset()
+        createUserWithEmailAndPassword(auth, emailValue, passwordValue)
+            .then(() => {
+                navigate('/')
             })
             .catch((err) => {
                 console.log(err.message)
@@ -42,33 +43,32 @@ const SignUp = ({ auth }) => {
                 Sign Up:
             </Typography>
             <form
-                id='signup'
+                className='user-signup'
                 className={classes.content}
-                onSubmit={(e) => signUpUser(e.target)}
             >
                 <TextField
                     required
-                    id="outlined-required  email"
-                    label="Enter your email address"
+                    id="outlined-required"
+                    label="Enter your email"
                     type='email'
                     className={classes.textField}
-                    name='email'
+                    onChange={(e) => setEmailValue(e.target.value)}
                 />
                 <TextField
                     id="outlined-password-input password"
                     label="Password"
                     type="password"
-                    name='password'
                     className={classes.textField}
                     required
                     inputProps={{ minLength: 6 }}
                     helperText='password should be atleast 6 characters long'
+                    onChange={(e) => setPasswordValue(e.target.value)}
                 />
                 <div className={classes.buttonContainer}>
                     <Button 
                         variant='contained' 
                         type='submit' 
-                        onClick={(e) => {signUpUser(e)}}
+                        onClick={(e) => signUpUser(e)}
                     >
                         Sign Up
                     </Button>

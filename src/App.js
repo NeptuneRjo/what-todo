@@ -13,9 +13,9 @@ import {
     signOut, signInWithEmailAndPassword
 } from 'firebase/auth'
 
-import { SignUpForm, SignIn } from './components'
+import { SignUpForm, SignIn, Todos } from './components'
 
-import { HashRouter as Router, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 
 const App = () => {
     
@@ -38,12 +38,13 @@ const App = () => {
     const colRef = collection(db, 'todos')
 
     return (
-        <Router>
+        <HashRouter>
             <Routes>
-                <Route path='/sign-up' element={<SignUpForm auth={auth} />}/>
+                <Route exact path='/sign-up' element={<SignUpForm auth={auth} />}/>
                 <Route path='/sign-in' element={<SignIn auth={auth} />}/>
+                <Route path='/' element={<Todos colRef={colRef} dv={db} /> } />
             </Routes>
-        </Router>
+        </HashRouter>
     )
 }
 
