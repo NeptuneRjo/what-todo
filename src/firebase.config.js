@@ -15,6 +15,8 @@ import {
 	onAuthStateChanged,
 } from 'firebase/auth'
 
+import React, { useState, useEffect } from 'react'
+
 const firebaseConfig = {
 	apiKey: process.env.REACT_APP_API_KEY,
 	authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -35,7 +37,7 @@ export const updateUserIdOnAuth = () => {
 		if (user) {
 			return user.id
 		} else {
-			return null
+			return 'default'
 		}
 	})
 }
@@ -53,14 +55,27 @@ export const pushNewTodoToDb = (e, todo, userId, form) => {
 	})
 }
 
-export const queryOwnedTodos = (array, userId) => {
+// This function is treated like an api fetch (because in essence it is)
+// returns its pending state untill the data is retrieved
+export const QueryOwnedTodos = (userId) => {
 	const q = query(colRef, where('ownedBy', '==', userId))
 
-	getDocs(q).then((docs) => {
-		docs.forEach((elem) => {
-			array.push(elem.data())
-		})
-	})
+	const [data, setData] = useState(null)
+	const [isPending, setIsPending] = useState(true)
+	const [error, setError] = useState(null)
+
+	useEffect(() => {
+		getDocs(q)
+			.then((res) => {
+				return res
+			})
+			.then((res) => {
+				setData(res)
+				setIsPending(false)
+			})
+	}, [])
+
+	return { data, isPending, error }
 }
 
 export const signUpUser = (e, email, password, toHome) => {
