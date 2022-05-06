@@ -12,19 +12,7 @@ import {
 	Typography,
 } from '@mui/material'
 
-import {
-	addDoc,
-	serverTimestamp,
-	onSnapshot,
-	doc,
-	query,
-	orderBy,
-	where,
-	getDocs,
-	collection,
-} from 'firebase/firestore'
-
-import { colRef, db, pushNewTodoToDb } from '../../firebase.config'
+import { pushNewTodoToDb, QueryOwnedTodos } from '../../firebase.config'
 
 const Todos = ({ userId }) => {
 	const classes = useStyles()
@@ -32,40 +20,22 @@ const Todos = ({ userId }) => {
 	const [display, setDisplay] = useState('All')
 	const [todoValue, setTodoValue] = useState('')
 
-	const userTodos = []
+	let userTodos = []
+
+	const { data, isPending, error } = QueryOwnedTodos(userId)
+
+	if (!isPending) {
+		data.forEach((elem) => {
+			userTodos.push(elem.data())
+		})
+	}
+
 	const form = document.querySelector('#form')
 
 	const placeholderTodos = [
 		'Go grocery shopping',
 		'Clean the house',
 		'Mow the lawn',
-	]
-
-	const defaultTodos = [
-		{
-			todo: 'Go grocery shopping',
-			completed: false,
-			createdAt: 1,
-			ownedBy: 'default',
-		},
-		{
-			todo: 'Apply for jobs',
-			completed: false,
-			createdAt: 1,
-			ownedBy: 'default',
-		},
-		{
-			todo: 'Finish build What Todo',
-			completed: true,
-			createdAt: 1,
-			ownedBy: 'default',
-		},
-		{
-			todo: 'wash the car',
-			completed: false,
-			createdAt: 1,
-			ownedBy: 'default',
-		},
 	]
 
 	const setTodosDisplay = (display) => {
@@ -75,6 +45,24 @@ const Todos = ({ userId }) => {
 	// Acts as liaison for pushNewTodoToDb
 	const callPushFunction = (e) => {
 		pushNewTodoToDb(e, todoValue, userId, form)
+	}
+
+	// Renders the todo section based on what's available
+	const todoMap = () => {
+		if (isPending) {
+			return (
+				<Typography variant='div' component='div'>
+					Loading...
+				</Typography>
+			)
+		} else if (userTodos.length === 0) {
+			return (
+				<Typography variant='div' component='div'>
+					Nothing to do...
+				</Typography>
+			)
+		}
+		return userTodos.map((todo) => <Todo todo={todo} />)
 	}
 
 	return (
@@ -108,12 +96,7 @@ const Todos = ({ userId }) => {
 			</form>
 
 			<Stack direction='column' spacing={2} className={classes.stack}>
-				<Todo />
-				{userId !== null &&
-					userTodos.map((todo) => <Todo todo={todo} userId={userId} />)}
-				{/* {userId !== null &&
-					queryReturned === true &&
-					userTodos.map((todo) => <Todo todo={todo} userId={userId} />)} */}
+				{todoMap()}
 			</Stack>
 			<ButtonGroup
 				variant='outlined'
