@@ -5,12 +5,8 @@ import { SignUpForm, SignIn, Todos } from './components'
 
 import { HashRouter, Routes, Route } from 'react-router-dom'
 
-import { auth, updateUserIdOnAuth } from './firebase.config'
-
-import { onAuthStateChanged } from 'firebase/auth'
-
 const App = () => {
-	const [userId, setUserId] = useState(updateUserIdOnAuth())
+	const [userId, setUserId] = useState('default')
 
 	return (
 		<HashRouter>
