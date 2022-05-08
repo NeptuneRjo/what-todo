@@ -2,11 +2,14 @@ import { initializeApp } from 'firebase/app'
 import {
 	getFirestore,
 	collection,
-	addDoc,
+	setDoc,
 	serverTimestamp,
 	getDocs,
 	query,
 	where,
+	updateDoc,
+	doc,
+	onSnapshot,
 } from 'firebase/firestore'
 
 import {
@@ -15,7 +18,9 @@ import {
 	onAuthStateChanged,
 } from 'firebase/auth'
 
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
+
+import { v4 as uuidv4 } from 'uuid'
 
 const firebaseConfig = {
 	apiKey: process.env.REACT_APP_API_KEY,
@@ -32,6 +37,14 @@ export const db = getFirestore(app)
 export const auth = getAuth(app)
 export const colRef = collection(db, 'todos')
 
+export const updateTodo = async (update, id) => {
+	const docRef = doc(db, 'todos', id)
+
+	updateDoc(docRef, {
+		completed: update,
+	})
+}
+
 export const updateUserIdOnAuth = () => {
 	onAuthStateChanged(auth, (user) => {
 		if (user) {
@@ -45,37 +58,17 @@ export const updateUserIdOnAuth = () => {
 export const pushNewTodoToDb = (e, todo, userId, form) => {
 	e.preventDefault()
 
-	addDoc(colRef, {
+	const newId = uuidv4()
+
+	const docRef = setDoc(doc(db, 'todos', newId), {
 		todo: todo,
 		completed: false,
 		createdAt: serverTimestamp(),
 		ownedBy: userId,
+		id: newId,
 	}).then(() => {
 		form.reset()
 	})
-}
-
-// This function is treated like an api fetch (because in essence it is)
-// returns its pending state untill the data is retrieved
-export const QueryOwnedTodos = (userId) => {
-	const q = query(colRef, where('ownedBy', '==', userId))
-
-	const [data, setData] = useState(null)
-	const [isPending, setIsPending] = useState(true)
-	const [error, setError] = useState(null)
-
-	useEffect(() => {
-		getDocs(q)
-			.then((res) => {
-				return res
-			})
-			.then((res) => {
-				setData(res)
-				setIsPending(false)
-			})
-	}, [])
-
-	return { data, isPending, error }
 }
 
 export const signUpUser = (e, email, password, toHome) => {
