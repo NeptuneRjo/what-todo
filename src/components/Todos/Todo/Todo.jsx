@@ -4,7 +4,7 @@ import useStyles from './styles'
 
 import { updateTodo, db } from '../../../firebase.config'
 
-const Todo = ({ todo }) => {
+const Todo = ({ todo, setRerender, rerender }) => {
 	const classes = useStyles()
 
 	const [completed, setCompleted] = useState(todo.completed)
@@ -18,11 +18,14 @@ const Todo = ({ todo }) => {
 
 	const handleUpdate = () => {
 		updateTodo(!todo.completed, todo.id)
-		setCompleted(!completed)
+		setRerender(Math.random())
 	}
 
 	return (
-		<main onClick={() => handleUpdate()}>
+		<main
+			onClick={() => handleUpdate()}
+			className={`todo ${todo.completed ? 'completed' : ''}`}
+		>
 			<Typography variant='div' component='div' className={todoClass()}>
 				{todo.todo}
 			</Typography>
