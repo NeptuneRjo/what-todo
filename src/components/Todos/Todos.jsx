@@ -49,10 +49,22 @@ const Todos = ({ userId }) => {
 		data.forEach((elem) => {
 			userTodos.push(elem.data())
 		})
-	}
 
-	const setTodosDisplay = (display) => {
-		setDisplay(display)
+		if (display === 'All') {
+			userTodosDisplay = userTodos
+		} else if (display === 'Uncompleted') {
+			for (let i = 0; i < userTodos.length; i++) {
+				if (userTodos[i].completed === false) {
+					userTodosDisplay.push(userTodos[i])
+				}
+			}
+		} else if (display === 'Completed') {
+			for (let i = 0; i < userTodos.length; i++) {
+				if (userTodos[i].completed === true) {
+					userTodosDisplay.push(userTodos[i])
+				}
+			}
+		}
 	}
 
 	// Acts as liaison for pushNewTodoToDb
@@ -62,23 +74,6 @@ const Todos = ({ userId }) => {
 		pushNewTodoToDb(e, todoValue, userId, form)
 		// Causes the useEffect hook to fire again
 		setRerender(rerender + 1)
-	}
-
-	// Clones the userTodos and filters through the clone
-	if (!isPending && display === 'All') {
-		userTodosDisplay = userTodos
-	} else if (!isPending && display === 'Uncompleted') {
-		for (let i = 0; i < userTodos.length; i++) {
-			if (userTodos[i].completed === false) {
-				userTodosDisplay.push(userTodos[i])
-			}
-		}
-	} else if (!isPending && display === 'Completed') {
-		for (let i = 0; i < userTodos.length; i++) {
-			if (userTodos[i].completed === true) {
-				userTodosDisplay.push(userTodos[i])
-			}
-		}
 	}
 
 	// Renders the todo section based on what's available
@@ -96,7 +91,9 @@ const Todos = ({ userId }) => {
 				</Typography>
 			)
 		}
-		return userTodosDisplay.map((todo) => <Todo todo={todo} />)
+		return userTodosDisplay.map((todo) => (
+			<Todo todo={todo} setRerender={setRerender} render={rerender} />
+		))
 	}
 
 	return (
@@ -132,11 +129,9 @@ const Todos = ({ userId }) => {
 				aria-label='outlined primary button group'
 				className={classes.buttonGroup}
 			>
-				<Button onClick={() => setTodosDisplay('All')}>All</Button>
-				<Button onClick={() => setTodosDisplay('Uncompleted')}>
-					Uncompleted
-				</Button>
-				<Button onClick={() => setTodosDisplay('Completed')}>Completed</Button>
+				<Button onClick={() => setDisplay('All')}>All</Button>
+				<Button onClick={() => setDisplay('Uncompleted')}>Uncompleted</Button>
+				<Button onClick={() => setDisplay('Completed')}>Completed</Button>
 			</ButtonGroup>
 		</main>
 	)
