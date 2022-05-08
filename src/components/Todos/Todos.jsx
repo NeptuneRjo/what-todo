@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import useStyles from './styles'
 
 import Todo from './Todo/Todo'
@@ -6,13 +6,14 @@ import Todo from './Todo/Todo'
 import {
 	TextField,
 	Stack,
-	Box,
 	ButtonGroup,
 	Button,
 	Typography,
 } from '@mui/material'
 
-import { pushNewTodoToDb, QueryOwnedTodos } from '../../firebase.config'
+import { pushNewTodoToDb, colRef } from '../../firebase.config'
+
+import { getDocs, query, where } from 'firebase/firestore'
 
 const Todos = ({ userId }) => {
 	const classes = useStyles()
@@ -20,9 +21,29 @@ const Todos = ({ userId }) => {
 	const [display, setDisplay] = useState('All')
 	const [todoValue, setTodoValue] = useState('')
 
-	let userTodos = []
+	// Exists to cause the useEffect hook to fire
+	const [rerender, setRerender] = useState(1)
 
-	const { data, isPending, error } = QueryOwnedTodos(userId)
+	const [data, setData] = useState(null)
+	const [isPending, setIsPending] = useState(true)
+	const [error, setError] = useState(null)
+
+	let userTodos = []
+	let userTodosDisplay = []
+
+	useEffect(() => {
+		const q = query(colRef, where('ownedBy', '==', userId))
+
+		getDocs(q)
+			.then((res) => {
+				return res
+			})
+			.then((res) => {
+				setIsPending(false)
+				setData(res)
+			})
+			.catch((err) => setError(err.message))
+	}, [rerender])
 
 	if (!isPending) {
 		data.forEach((elem) => {
@@ -30,21 +51,34 @@ const Todos = ({ userId }) => {
 		})
 	}
 
-	const form = document.querySelector('#form')
-
-	const placeholderTodos = [
-		'Go grocery shopping',
-		'Clean the house',
-		'Mow the lawn',
-	]
-
 	const setTodosDisplay = (display) => {
 		setDisplay(display)
 	}
 
 	// Acts as liaison for pushNewTodoToDb
 	const callPushFunction = (e) => {
+		const form = document.querySelector('#form')
+
 		pushNewTodoToDb(e, todoValue, userId, form)
+		// Causes the useEffect hook to fire again
+		setRerender(rerender + 1)
+	}
+
+	// Clones the userTodos and filters through the clone
+	if (!isPending && display === 'All') {
+		userTodosDisplay = userTodos
+	} else if (!isPending && display === 'Uncompleted') {
+		for (let i = 0; i < userTodos.length; i++) {
+			if (userTodos[i].completed === false) {
+				userTodosDisplay.push(userTodos[i])
+			}
+		}
+	} else if (!isPending && display === 'Completed') {
+		for (let i = 0; i < userTodos.length; i++) {
+			if (userTodos[i].completed === true) {
+				userTodosDisplay.push(userTodos[i])
+			}
+		}
 	}
 
 	// Renders the todo section based on what's available
@@ -55,14 +89,14 @@ const Todos = ({ userId }) => {
 					Loading...
 				</Typography>
 			)
-		} else if (userTodos.length === 0) {
+		} else if (userTodosDisplay.length === 0) {
 			return (
 				<Typography variant='div' component='div'>
 					Nothing to do...
 				</Typography>
 			)
 		}
-		return userTodos.map((todo) => <Todo todo={todo} />)
+		return userTodosDisplay.map((todo) => <Todo todo={todo} />)
 	}
 
 	return (
@@ -77,11 +111,6 @@ const Todos = ({ userId }) => {
 					required
 					id='outlined-required'
 					label='What Todo'
-					placeholder={
-						placeholderTodos[
-							Math.floor(Math.random() * placeholderTodos.length)
-						]
-					}
 					className={classes.input}
 					name='todo'
 					onChange={(e) => setTodoValue(e.target.value)}
