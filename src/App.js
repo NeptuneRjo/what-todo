@@ -11,7 +11,7 @@ const App = () => {
 	return (
 		<HashRouter>
 			<Routes>
-				<Route path='/sign-up' element={<SignUpForm />} />
+				<Route path='/sign-up' element={<SignUpForm setUserId={setUserId} />} />
 				<Route path='/sign-in' element={<SignIn />} />
 				<Route exact path='/' element={<Todos userId={userId} />} />
 			</Routes>
