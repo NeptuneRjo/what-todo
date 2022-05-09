@@ -1,0 +1,11 @@
+.completed {
+	text-decoration: line-through;
+	opacity: 0.9;
+	cursor: pointer;
+}
+
+.incomplete {
+	text-decoration: none;
+	opacity: 1;
+	cursor: pointer;
+}
