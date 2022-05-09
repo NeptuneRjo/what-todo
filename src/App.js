@@ -27,13 +27,16 @@ const App = () => {
 	if (userId !== null) {
 		return (
 			<HashRouter>
-				<Nav userId={userId} userEmail={userEmail} />
+				<Nav userId={userId} userEmail={userEmail} setUserId={setUserId} />
 				<Routes>
 					<Route
 						path='/sign-up'
 						element={<SignUpForm setUserId={setUserId} />}
 					/>
-					<Route path='/sign-in' element={<SignIn />} />
+					<Route
+						path='/sign-in'
+						element={<SignIn userId={userId} setUserId={setUserId} />}
+					/>
 					<Route exact path='/' element={<Todos userId={userId} />} />
 				</Routes>
 			</HashRouter>
