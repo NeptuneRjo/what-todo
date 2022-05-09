@@ -4,10 +4,18 @@ import useStyles from './styles'
 import { Typography, Button, AppBar, Box, Toolbar } from '@mui/material'
 import { Link } from 'react-router-dom'
 
-import { signOutUser } from '../../firebase.config'
+import { auth } from '../../firebase.config'
 
-const Navbar = ({ userId, userEmail }) => {
+import { signOut } from 'firebase/auth'
+
+const Navbar = ({ userId, userEmail, setUserId }) => {
 	const classes = useStyles()
+
+	const signOutUser = () => {
+		signOut(auth).then(() => {
+			setUserId(null)
+		})
+	}
 
 	return (
 		<Box sx={{ flexGrow: 1 }}>
@@ -41,7 +49,12 @@ const Navbar = ({ userId, userEmail }) => {
 							>
 								{userEmail}
 							</Typography>
-							<Button color='inherit' onClick={() => signOutUser()}>
+							<Button
+								color='inherit'
+								onClick={() => {
+									signOutUser()
+								}}
+							>
 								Sign Out
 							</Button>
 						</div>
