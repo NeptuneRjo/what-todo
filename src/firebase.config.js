@@ -16,6 +16,7 @@ import {
 	createUserWithEmailAndPassword,
 	getAuth,
 	onAuthStateChanged,
+	signOut,
 } from 'firebase/auth'
 
 import { useState, useEffect } from 'react'
@@ -67,4 +68,8 @@ export const signUpUser = (e, email, password, toHome) => {
 	createUserWithEmailAndPassword(auth, email, password).then(() => {
 		toHome()
 	})
+}
+
+export const signOutUser = () => {
+	signOut(auth)
 }
