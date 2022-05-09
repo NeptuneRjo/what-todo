@@ -1,80 +1,66 @@
-import React from 'react'
+import React, { useState } from 'react'
 import useStyles from './styles'
 
-import { 
-    createUserWithEmailAndPassword,
-} from 'firebase/auth'
+import { Button, TextField, Typography } from '@mui/material'
 
-import { 
-    Button, TextField, Typography,
-} from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
-const SignUp = ({ auth }) => {
+import { signUpUser } from '../../firebase.config'
 
-    const classes = useStyles()
+const SignUp = () => {
+	// Initializes the styles and navigation
+	const classes = useStyles()
+	let navigate = useNavigate()
 
-    const form = document.querySelector('#signup')
+	const [emailValue, setEmailValue] = useState('')
+	const [passwordValue, setPasswordValue] = useState('')
 
-    const signUpUser = (e) => {
-        e.preventDefault()
+	// Acts as liaison for the sign up function
+	const callSignUpFunction = (e) => {
+		signUpUser(e, emailValue, passwordValue, navigate('/'))
+	}
 
-        const email = form.email.value
-        const password = form.password.value
-
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((cred) => {
-                form.reset()
-            })
-            .catch((err) => {
-                console.log(err.message)
-            })
-    }
-
-    return (
-        <main className={classes.main}>
-            <Typography 
-                variant='body' 
-                component='div' 
-                className={classes.header}
-            >
-                Sign Up:
-            </Typography>
-            <form
-                id='signup'
-                className={classes.content}
-                onSubmit={(e) => signUpUser(e.target)}
-            >
-                <TextField
-                    required
-                    id="outlined-required  email"
-                    label="Enter your email address"
-                    type='email'
-                    className={classes.textField}
-                    name='email'
-                />
-                <TextField
-                    id="outlined-password-input password"
-                    label="Password"
-                    type="password"
-                    name='password'
-                    className={classes.textField}
-                    required
-                    inputProps={{ minLength: 6 }}
-                    helperText='password should be atleast 6 characters long'
-                />
-                <div className={classes.buttonContainer}>
-                    <Button 
-                        variant='contained' 
-                        type='submit' 
-                        onClick={(e) => {signUpUser(e)}}
-                    >
-                        Sign Up
-                    </Button>
-                    <Button variant='outlined'>Cancel</Button>
-                </div>
-            </form>
-        </main>
-    )
+	return (
+		<main className={classes.main}>
+			<Typography variant='body' component='div' className={classes.header}>
+				Sign Up:
+			</Typography>
+			<form
+				className='user-signup'
+				className={classes.content}
+				onSubmit={(e) => callSignUpFunction(e)}
+			>
+				<TextField
+					required
+					id='outlined-required'
+					label='Enter your email'
+					type='email'
+					className={classes.textField}
+					onChange={(e) => setEmailValue(e.target.value)}
+				/>
+				<TextField
+					id='outlined-password-input password'
+					label='Password'
+					type='password'
+					className={classes.textField}
+					required
+					inputProps={{ minLength: 6 }}
+					helperText='password should be atleast 6 characters long'
+					onChange={(e) => setPasswordValue(e.target.value)}
+				/>
+				<div className={classes.buttonContainer}>
+					<Button
+						variant='contained'
+						type='submit'
+						onClick={(e) => callSignUpFunction(e)}
+					>
+						Sign Up
+					</Button>
+					<Button variant='outlined'>Cancel</Button>
+				</div>
+			</form>
+		</main>
+	)
 }
 
 export default SignUp
