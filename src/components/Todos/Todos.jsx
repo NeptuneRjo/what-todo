@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import useStyles from './styles'
 
-import Todo from './Todo/Todo'
-
 import {
 	TextField,
 	Stack,
@@ -11,9 +9,11 @@ import {
 	Typography,
 } from '@mui/material'
 
-import { pushNewTodoToDb, colRef } from '../../firebase.config'
+import { pushNewTodoToDb, colRef, updateTodo } from '../../firebase.config'
 
 import { getDocs, query, where } from 'firebase/firestore'
+
+import './style.css'
 
 const Todos = ({ userId }) => {
 	const classes = useStyles()
@@ -76,6 +76,11 @@ const Todos = ({ userId }) => {
 		setRerender(rerender + 1)
 	}
 
+	const handleTodoClick = (todo) => {
+		updateTodo(!todo.completed, todo.id)
+		setRerender(Math.random())
+	}
+
 	// Renders the todo section based on what's available
 	const todoMap = () => {
 		if (isPending) {
@@ -92,7 +97,13 @@ const Todos = ({ userId }) => {
 			)
 		}
 		return userTodosDisplay.map((todo) => (
-			<Todo todo={todo} setRerender={setRerender} render={rerender} />
+			<div className='todo' onClick={() => handleTodoClick(todo)}>
+				<div
+					className={`todo-item ${todo.completed ? 'completed' : 'incomplete'}`}
+				>
+					{todo.todo}
+				</div>
+			</div>
 		))
 	}
 
