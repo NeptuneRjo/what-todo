@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './App.css'
 
-import { SignUpForm, SignIn, Todos } from './components'
+import { SignUpForm, SignIn, Todos, Nav } from './components'
 
 import { HashRouter, Routes, Route } from 'react-router-dom'
 
@@ -11,11 +11,14 @@ import { onAuthStateChanged } from 'firebase/auth'
 
 const App = () => {
 	const [userId, setUserId] = useState(null)
+	const [userEmail, setUserEmail] = useState(null)
 
 	onAuthStateChanged(auth, (user) => {
 		if (user) {
+			const email = user.email
 			const uid = user.uid
 			setUserId(uid)
+			setUserEmail(email)
 		} else {
 			setUserId('default')
 		}
@@ -24,6 +27,7 @@ const App = () => {
 	if (userId !== null) {
 		return (
 			<HashRouter>
+				<Nav userId={userId} userEmail={userEmail} />
 				<Routes>
 					<Route
 						path='/sign-up'
