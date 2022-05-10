@@ -13,6 +13,9 @@
 .todo {
 	width: 100%;
 	cursor: pointer;
+
+	display: flex;
+	justify-content: space-between;
 }
 
 .todo-item {

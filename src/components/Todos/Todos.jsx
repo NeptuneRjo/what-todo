@@ -12,9 +12,11 @@ import {
 	styled,
 } from '@mui/material'
 
-import { pushNewTodoToDb, colRef, updateTodo } from '../../firebase.config'
+import DeleteIcon from '@mui/icons-material/Delete'
 
-import { getDocs, query, where } from 'firebase/firestore'
+import { pushNewTodoToDb, colRef, updateTodo, db } from '../../firebase.config'
+
+import { getDocs, query, where, doc, deleteDoc } from 'firebase/firestore'
 
 import './style.css'
 
@@ -84,6 +86,14 @@ const Todos = ({ userId }) => {
 		setRerender(Math.random())
 	}
 
+	const handleDeleteClick = (todoId) => {
+		const docRef = doc(db, 'todos', todoId)
+
+		deleteDoc(docRef).then(() => {
+			setRerender(Math.random())
+		})
+	}
+
 	// Renders the todo section based on what's available
 	const todoMap = () => {
 		if (isPending) {
@@ -106,6 +116,7 @@ const Todos = ({ userId }) => {
 				>
 					{todo.todo}
 				</div>
+				<DeleteIcon onClick={() => handleDeleteClick(todo.id)} />
 			</div>
 		))
 	}
