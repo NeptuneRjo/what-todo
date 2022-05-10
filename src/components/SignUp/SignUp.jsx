@@ -17,7 +17,6 @@ const SignUp = ({ setUserId }) => {
 	const [emailValue, setEmailValue] = useState('')
 	const [passwordValue, setPasswordValue] = useState('')
 
-	// Acts as liaison for the sign up function
 	const callSignUpFunction = (e) => {
 		e.preventDefault()
 
