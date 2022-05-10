@@ -10,6 +10,15 @@
 	cursor: pointer;
 }
 
+.todo {
+	width: 100%;
+	cursor: pointer;
+}
+
+.todo-item {
+	margin-left: 3rem;
+}
+
 .todos-buttongroup {
 	gap: 0.25rem;
 	display: flex;
@@ -17,14 +26,16 @@
 
 .todos-button {
 	background: #fff;
-	border: solid 1px #0288d1;
+	border: solid 1px #1976d2;
 	padding: 15px;
 	cursor: pointer;
 	border-radius: 8px;
+	color: #1976d2;
 }
 
 .todos-button.true {
-	background: #0288d1;
+	background: #1976d2;
 	padding: 15px;
-	border: solid 1px #0288d1;
+	border: solid 1px #1976d2;
+	color: #fff;
 }

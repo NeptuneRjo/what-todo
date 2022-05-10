@@ -6,12 +6,17 @@ export default makeStyles(() => ({
 		justifyContent: 'center',
 		alignItems: 'center',
 		flexDirection: 'column',
-		height: '100vh',
+		minHeight: '100vh',
 		background: '#fff',
+	},
+	inputContainer: {
+		width: '450px',
+		display: 'flex',
+		justifyContent: 'center',
+		gap: '1rem',
 	},
 	input: {
 		color: '#fff',
-		width: '300px',
 	},
 	stack: {
 		display: 'flex',
@@ -20,9 +25,9 @@ export default makeStyles(() => ({
 		alignItems: 'center',
 		height: '450px',
 		overflowY: 'scroll',
-		width: '300px',
+		width: '450px',
 		margin: '1rem 0',
-		border: 'solid 1px #303030',
+		boxShadow: '0px 0px 6px #0000008c',
 	},
 	buttonGroup: {
 		width: '300px',

@@ -112,9 +112,6 @@ const Todos = ({ userId }) => {
 
 	return (
 		<main className={classes.main}>
-			<Typography variant='div' component='div' className={classes.header}>
-				{display} Todos
-			</Typography>
 			<form className={classes.inputContainer} id='form'>
 				<TextField
 					required
@@ -136,36 +133,6 @@ const Todos = ({ userId }) => {
 			<Stack direction='column' spacing={2} className={classes.stack}>
 				{todoMap()}
 			</Stack>
-			{/* <ButtonGroup
-				variant='outlined'
-				aria-label='outlined primary button group'
-				className={classes.buttonGroup}
-			>
-				<Button onClick={() => setDisplay('All')}>All</Button>
-				<Button onClick={() => setDisplay('Uncompleted')}>Uncompleted</Button>
-				<Button onClick={() => setDisplay('Completed')}>Completed</Button>
-			</ButtonGroup> */}
-			{/* <ToggleButtonGroup aria-label='todo display' exclusive color='primary'>
-				<CustomToggleButton
-					aria-label='all todos'
-					onClick={() => setDisplay('All')}
-				>
-					All
-				</CustomToggleButton>
-				<CustomToggleButton
-					aria-label='Uncomplete todos'
-					onClick={() => setDisplay('Uncompleted')}
-				>
-					Uncomplete
-				</CustomToggleButton>
-				<CustomToggleButton
-					aria-label='Completed todos'
-					onClick={() => setDisplay('Completed')}
-				>
-					Completed
-				</CustomToggleButton>
-			</ToggleButtonGroup> */}
-
 			<div className='todos-buttongroup'>
 				<button
 					className={`todos-button ${display === 'All'}`}
