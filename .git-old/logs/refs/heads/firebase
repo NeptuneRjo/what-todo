@@ -1,0 +1,25 @@
+0000000000000000000000000000000000000000 27fab27a01f6dadf6c60eb31f61978f5749ac095 NeptuneRjo <rjo9000@outlook.com> 1651542946 -0400	branch: Created from HEAD
+27fab27a01f6dadf6c60eb31f61978f5749ac095 811a1093ad2eb6f2ade4a254d1beac93ebe49c08 NeptuneRjo <rjo9000@outlook.com> 1651543462 -0400	commit: initialized firebase
+811a1093ad2eb6f2ade4a254d1beac93ebe49c08 9a9a796cc9ee377396d50cfec9938454e04e1ce6 NeptuneRjo <rjo9000@outlook.com> 1651549985 -0400	commit: set up database reference
+9a9a796cc9ee377396d50cfec9938454e04e1ce6 04cdc09857040def22d0a90f1e32120aa836f976 NeptuneRjo <rjo9000@outlook.com> 1651606181 -0400	merge signup-page: Fast-forward
+04cdc09857040def22d0a90f1e32120aa836f976 17d9193c5baa1fc839d953d1597e635335353d0e NeptuneRjo <rjo9000@outlook.com> 1651724745 -0400	merge todos: Fast-forward
+17d9193c5baa1fc839d953d1597e635335353d0e afd0bcae185733ba40be7d94814b81be8387c0bf NeptuneRjo <rjo9000@outlook.com> 1651727083 -0400	commit: setup firebase config in seperate file
+afd0bcae185733ba40be7d94814b81be8387c0bf 05c524250cc3c3353e719f5c9091c27e55443d4b NeptuneRjo <rjo9000@outlook.com> 1651791067 -0400	commit: moved firestore related functions to firestore.config file
+05c524250cc3c3353e719f5c9091c27e55443d4b c733e795b507972b48ee562083a299a632672370 NeptuneRjo <rjo9000@outlook.com> 1651791733 -0400	commit: moved firestore related functions to firestore.config file
+c733e795b507972b48ee562083a299a632672370 9e71694f1ba31412ba9f043907c1642e0f5600c8 NeptuneRjo <rjo9000@outlook.com> 1651791778 -0400	commit: moved firestore related functions to firestore.config file
+9e71694f1ba31412ba9f043907c1642e0f5600c8 7d9b96c1b80406d53ad26de601678c55d749482d NeptuneRjo <rjo9000@outlook.com> 1651791790 -0400	commit: moved firestore related functions to firestore.config file
+7d9b96c1b80406d53ad26de601678c55d749482d 2f4897358252531e9e5a01b43e56517c7c9d3004 NeptuneRjo <rjo9000@outlook.com> 1651819639 -0400	commit: the queryownedtodos is a react component in order to deal with the multiple async functions used within
+2f4897358252531e9e5a01b43e56517c7c9d3004 374e64b08c1f30bf54f9ad6fbeaacdf7b5543f04 NeptuneRjo <rjo9000@outlook.com> 1651819712 -0400	commit: created todoMap function for the different stages of todos
+374e64b08c1f30bf54f9ad6fbeaacdf7b5543f04 dd777e498e30fb9e60c6dc997612ff2eb94845be NeptuneRjo <rjo9000@outlook.com> 1652039203 -0400	commit: removed the query function
+dd777e498e30fb9e60c6dc997612ff2eb94845be c0aaab2dfd7db295f729436726e42851bad46ae8 NeptuneRjo <rjo9000@outlook.com> 1652039236 -0400	commit: properly reloads when a new todo is added and filters through based on whats selected
+c0aaab2dfd7db295f729436726e42851bad46ae8 8705a5846be902a723aeb8a03e0e3c6466d7c8be NeptuneRjo <rjo9000@outlook.com> 1652039296 -0400	commit: cleanup
+8705a5846be902a723aeb8a03e0e3c6466d7c8be f2bcc2c9adaaff2adcb7e973eb8d164fbbaefbfb NeptuneRjo <rjo9000@outlook.com> 1652039331 -0400	commit: install uuidv4 for custom unique ids
+f2bcc2c9adaaff2adcb7e973eb8d164fbbaefbfb 13889c2de5623dd71f2038a01219f1278a6b4aed NeptuneRjo <rjo9000@outlook.com> 1652045774 -0400	commit: able to sort through todos
+13889c2de5623dd71f2038a01219f1278a6b4aed 71899c41ea93d67181e7162e59dbdead27f68bb5 NeptuneRjo <rjo9000@outlook.com> 1652045802 -0400	commit: added styling to completed todos
+71899c41ea93d67181e7162e59dbdead27f68bb5 764f28461f41290bb12fd0df86d529a7c7a0fb81 NeptuneRjo <rjo9000@outlook.com> 1652049004 -0400	commit: styled todos
+764f28461f41290bb12fd0df86d529a7c7a0fb81 3712e77397d5973af9b2149debe8840ba55e04e6 NeptuneRjo <rjo9000@outlook.com> 1652066984 -0400	commit: todos are rendered in the todos component, updates completion properly
+3712e77397d5973af9b2149debe8840ba55e04e6 ccc35656977741c88e698cf1ef852dd024a10b8f NeptuneRjo <rjo9000@outlook.com> 1652067022 -0400	commit: styled todos
+ccc35656977741c88e698cf1ef852dd024a10b8f f4a3b596a9e47a5daef4aa21a69cfcf720479df9 NeptuneRjo <rjo9000@outlook.com> 1652067033 -0400	commit: cleanup
+f4a3b596a9e47a5daef4aa21a69cfcf720479df9 df5396fe19c2dfdbadc3fcf92f797ac8dfb5eda6 NeptuneRjo <rjo9000@outlook.com> 1652067056 -0400	commit: passed props to signupform
+df5396fe19c2dfdbadc3fcf92f797ac8dfb5eda6 add1cdbf8b0bf73f18ee1eedc50421499fe89d9c NeptuneRjo <rjo9000@outlook.com> 1652067094 -0400	commit: accepted props
+add1cdbf8b0bf73f18ee1eedc50421499fe89d9c 3a48fa136dd7cee7b28204c9582de1a4bd0cd301 NeptuneRjo <rjo9000@outlook.com> 1652067106 -0400	commit: deleted todo component

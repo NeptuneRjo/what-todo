@@ -1,0 +1,75 @@
+0000000000000000000000000000000000000000 6c8abb9bfdaf1d535e78614d3c69e295f85ad48c NeptuneRjo <rjo9000@outlook.com> 1651542037 -0400	commit (initial): Initialize project using Create React App
+6c8abb9bfdaf1d535e78614d3c69e295f85ad48c 0000000000000000000000000000000000000000 NeptuneRjo <rjo9000@outlook.com> 1651542682 -0400	Branch: renamed refs/heads/master to refs/heads/main
+0000000000000000000000000000000000000000 6c8abb9bfdaf1d535e78614d3c69e295f85ad48c NeptuneRjo <rjo9000@outlook.com> 1651542682 -0400	Branch: renamed refs/heads/master to refs/heads/main
+6c8abb9bfdaf1d535e78614d3c69e295f85ad48c 27fab27a01f6dadf6c60eb31f61978f5749ac095 NeptuneRjo <rjo9000@outlook.com> 1651542689 -0400	commit: setup
+27fab27a01f6dadf6c60eb31f61978f5749ac095 27fab27a01f6dadf6c60eb31f61978f5749ac095 NeptuneRjo <rjo9000@outlook.com> 1651542946 -0400	checkout: moving from main to firebase
+27fab27a01f6dadf6c60eb31f61978f5749ac095 811a1093ad2eb6f2ade4a254d1beac93ebe49c08 NeptuneRjo <rjo9000@outlook.com> 1651543462 -0400	commit: initialized firebase
+811a1093ad2eb6f2ade4a254d1beac93ebe49c08 9a9a796cc9ee377396d50cfec9938454e04e1ce6 NeptuneRjo <rjo9000@outlook.com> 1651549985 -0400	commit: set up database reference
+9a9a796cc9ee377396d50cfec9938454e04e1ce6 27fab27a01f6dadf6c60eb31f61978f5749ac095 NeptuneRjo <rjo9000@outlook.com> 1651549989 -0400	checkout: moving from firebase to main
+27fab27a01f6dadf6c60eb31f61978f5749ac095 9a9a796cc9ee377396d50cfec9938454e04e1ce6 NeptuneRjo <rjo9000@outlook.com> 1651549991 -0400	merge firebase: Fast-forward
+9a9a796cc9ee377396d50cfec9938454e04e1ce6 e5c662d9aa3499c98ff28287c6dd229ff1ea86aa NeptuneRjo <rjo9000@outlook.com> 1651550093 -0400	commit: added material-ui for component building
+e5c662d9aa3499c98ff28287c6dd229ff1ea86aa e5c662d9aa3499c98ff28287c6dd229ff1ea86aa NeptuneRjo <rjo9000@outlook.com> 1651550328 -0400	checkout: moving from main to signup-page
+e5c662d9aa3499c98ff28287c6dd229ff1ea86aa 57955df8454cdd8dc8813d8cb4d8bee93b938d52 NeptuneRjo <rjo9000@outlook.com> 1651559050 -0400	commit: installed addition MUI dependencies
+57955df8454cdd8dc8813d8cb4d8bee93b938d52 05136fad97c398b0aee60bfc8b984194d0860f01 NeptuneRjo <rjo9000@outlook.com> 1651559071 -0400	commit: setup signup form component
+05136fad97c398b0aee60bfc8b984194d0860f01 92dbc4820a9ec85f2977e2510955f8fdc271bd77 NeptuneRjo <rjo9000@outlook.com> 1651559087 -0400	commit: added signup to app
+92dbc4820a9ec85f2977e2510955f8fdc271bd77 04cdc09857040def22d0a90f1e32120aa836f976 NeptuneRjo <rjo9000@outlook.com> 1651606165 -0400	commit: fixed alignments
+04cdc09857040def22d0a90f1e32120aa836f976 9a9a796cc9ee377396d50cfec9938454e04e1ce6 NeptuneRjo <rjo9000@outlook.com> 1651606178 -0400	checkout: moving from signup-page to firebase
+9a9a796cc9ee377396d50cfec9938454e04e1ce6 04cdc09857040def22d0a90f1e32120aa836f976 NeptuneRjo <rjo9000@outlook.com> 1651606181 -0400	merge signup-page: Fast-forward
+04cdc09857040def22d0a90f1e32120aa836f976 04cdc09857040def22d0a90f1e32120aa836f976 NeptuneRjo <rjo9000@outlook.com> 1651606224 -0400	checkout: moving from firebase to signup-page
+04cdc09857040def22d0a90f1e32120aa836f976 c4dcb3012f7eaefe31860045a801f5762ec333de NeptuneRjo <rjo9000@outlook.com> 1651606375 -0400	commit: fixed alignments
+c4dcb3012f7eaefe31860045a801f5762ec333de cd39bdca46c1df94291ee39c4669bc566424dd90 NeptuneRjo <rjo9000@outlook.com> 1651607574 -0400	commit: Form now signs up users with firebase auth
+cd39bdca46c1df94291ee39c4669bc566424dd90 e5c662d9aa3499c98ff28287c6dd229ff1ea86aa NeptuneRjo <rjo9000@outlook.com> 1651607607 -0400	checkout: moving from signup-page to main
+e5c662d9aa3499c98ff28287c6dd229ff1ea86aa cd39bdca46c1df94291ee39c4669bc566424dd90 NeptuneRjo <rjo9000@outlook.com> 1651607610 -0400	merge signup-page: Fast-forward
+cd39bdca46c1df94291ee39c4669bc566424dd90 d00cfdf6089116d02b471a012e4813a27a3b4c31 NeptuneRjo <rjo9000@outlook.com> 1651607652 -0400	commit: added react-router-dom
+d00cfdf6089116d02b471a012e4813a27a3b4c31 d00cfdf6089116d02b471a012e4813a27a3b4c31 NeptuneRjo <rjo9000@outlook.com> 1651607659 -0400	checkout: moving from main to login-page
+d00cfdf6089116d02b471a012e4813a27a3b4c31 003d476c105ad7c997174f0e520528315f07f885 NeptuneRjo <rjo9000@outlook.com> 1651610151 -0400	commit: built sign in page
+003d476c105ad7c997174f0e520528315f07f885 241e0e21d78f310b1d2b6de9e4d6ab5506667b73 NeptuneRjo <rjo9000@outlook.com> 1651610169 -0400	commit: updated exports
+241e0e21d78f310b1d2b6de9e4d6ab5506667b73 241e0e21d78f310b1d2b6de9e4d6ab5506667b73 NeptuneRjo <rjo9000@outlook.com> 1651610338 -0400	checkout: moving from login-page to router
+241e0e21d78f310b1d2b6de9e4d6ab5506667b73 1432db7d864838265491c79322a775d1fb9d3eb1 NeptuneRjo <rjo9000@outlook.com> 1651610771 -0400	commit: added router and routes to signup and signin
+1432db7d864838265491c79322a775d1fb9d3eb1 d00cfdf6089116d02b471a012e4813a27a3b4c31 NeptuneRjo <rjo9000@outlook.com> 1651610778 -0400	checkout: moving from router to main
+d00cfdf6089116d02b471a012e4813a27a3b4c31 1432db7d864838265491c79322a775d1fb9d3eb1 NeptuneRjo <rjo9000@outlook.com> 1651610781 -0400	merge router: Fast-forward
+1432db7d864838265491c79322a775d1fb9d3eb1 cd39bdca46c1df94291ee39c4669bc566424dd90 NeptuneRjo <rjo9000@outlook.com> 1651610793 -0400	checkout: moving from main to signup-page
+cd39bdca46c1df94291ee39c4669bc566424dd90 1432db7d864838265491c79322a775d1fb9d3eb1 NeptuneRjo <rjo9000@outlook.com> 1651610796 -0400	merge main: Fast-forward
+1432db7d864838265491c79322a775d1fb9d3eb1 f17889448466f2bda6438c89d563e92085053444 NeptuneRjo <rjo9000@outlook.com> 1651610957 -0400	commit: documentation
+f17889448466f2bda6438c89d563e92085053444 1432db7d864838265491c79322a775d1fb9d3eb1 NeptuneRjo <rjo9000@outlook.com> 1651610966 -0400	checkout: moving from signup-page to main
+1432db7d864838265491c79322a775d1fb9d3eb1 f17889448466f2bda6438c89d563e92085053444 NeptuneRjo <rjo9000@outlook.com> 1651610969 -0400	merge signup-page: Fast-forward
+f17889448466f2bda6438c89d563e92085053444 f17889448466f2bda6438c89d563e92085053444 NeptuneRjo <rjo9000@outlook.com> 1651611463 -0400	checkout: moving from main to home
+f17889448466f2bda6438c89d563e92085053444 0000000000000000000000000000000000000000 NeptuneRjo <rjo9000@outlook.com> 1651611506 -0400	Branch: renamed refs/heads/home to refs/heads/todos
+0000000000000000000000000000000000000000 f17889448466f2bda6438c89d563e92085053444 NeptuneRjo <rjo9000@outlook.com> 1651611506 -0400	Branch: renamed refs/heads/home to refs/heads/todos
+f17889448466f2bda6438c89d563e92085053444 b426d12964c5f94444d74c6680c1f23109afb5cb NeptuneRjo <rjo9000@outlook.com> 1651631031 -0400	commit: setup todos
+b426d12964c5f94444d74c6680c1f23109afb5cb a70be88631945f46205a7eaf733ac6cb0bfc84a9 NeptuneRjo <rjo9000@outlook.com> 1651631049 -0400	commit: updated exports
+a70be88631945f46205a7eaf733ac6cb0bfc84a9 17d9193c5baa1fc839d953d1597e635335353d0e NeptuneRjo <rjo9000@outlook.com> 1651724724 -0400	commit: tweaking
+17d9193c5baa1fc839d953d1597e635335353d0e 04cdc09857040def22d0a90f1e32120aa836f976 NeptuneRjo <rjo9000@outlook.com> 1651724729 -0400	checkout: moving from todos to firebase
+04cdc09857040def22d0a90f1e32120aa836f976 17d9193c5baa1fc839d953d1597e635335353d0e NeptuneRjo <rjo9000@outlook.com> 1651724745 -0400	merge todos: Fast-forward
+17d9193c5baa1fc839d953d1597e635335353d0e afd0bcae185733ba40be7d94814b81be8387c0bf NeptuneRjo <rjo9000@outlook.com> 1651727083 -0400	commit: setup firebase config in seperate file
+afd0bcae185733ba40be7d94814b81be8387c0bf 05c524250cc3c3353e719f5c9091c27e55443d4b NeptuneRjo <rjo9000@outlook.com> 1651791067 -0400	commit: moved firestore related functions to firestore.config file
+05c524250cc3c3353e719f5c9091c27e55443d4b c733e795b507972b48ee562083a299a632672370 NeptuneRjo <rjo9000@outlook.com> 1651791733 -0400	commit: moved firestore related functions to firestore.config file
+c733e795b507972b48ee562083a299a632672370 9e71694f1ba31412ba9f043907c1642e0f5600c8 NeptuneRjo <rjo9000@outlook.com> 1651791778 -0400	commit: moved firestore related functions to firestore.config file
+9e71694f1ba31412ba9f043907c1642e0f5600c8 7d9b96c1b80406d53ad26de601678c55d749482d NeptuneRjo <rjo9000@outlook.com> 1651791790 -0400	commit: moved firestore related functions to firestore.config file
+7d9b96c1b80406d53ad26de601678c55d749482d 2f4897358252531e9e5a01b43e56517c7c9d3004 NeptuneRjo <rjo9000@outlook.com> 1651819639 -0400	commit: the queryownedtodos is a react component in order to deal with the multiple async functions used within
+2f4897358252531e9e5a01b43e56517c7c9d3004 374e64b08c1f30bf54f9ad6fbeaacdf7b5543f04 NeptuneRjo <rjo9000@outlook.com> 1651819712 -0400	commit: created todoMap function for the different stages of todos
+374e64b08c1f30bf54f9ad6fbeaacdf7b5543f04 dd777e498e30fb9e60c6dc997612ff2eb94845be NeptuneRjo <rjo9000@outlook.com> 1652039203 -0400	commit: removed the query function
+dd777e498e30fb9e60c6dc997612ff2eb94845be c0aaab2dfd7db295f729436726e42851bad46ae8 NeptuneRjo <rjo9000@outlook.com> 1652039236 -0400	commit: properly reloads when a new todo is added and filters through based on whats selected
+c0aaab2dfd7db295f729436726e42851bad46ae8 8705a5846be902a723aeb8a03e0e3c6466d7c8be NeptuneRjo <rjo9000@outlook.com> 1652039296 -0400	commit: cleanup
+8705a5846be902a723aeb8a03e0e3c6466d7c8be f2bcc2c9adaaff2adcb7e973eb8d164fbbaefbfb NeptuneRjo <rjo9000@outlook.com> 1652039331 -0400	commit: install uuidv4 for custom unique ids
+f2bcc2c9adaaff2adcb7e973eb8d164fbbaefbfb 13889c2de5623dd71f2038a01219f1278a6b4aed NeptuneRjo <rjo9000@outlook.com> 1652045774 -0400	commit: able to sort through todos
+13889c2de5623dd71f2038a01219f1278a6b4aed 71899c41ea93d67181e7162e59dbdead27f68bb5 NeptuneRjo <rjo9000@outlook.com> 1652045802 -0400	commit: added styling to completed todos
+71899c41ea93d67181e7162e59dbdead27f68bb5 764f28461f41290bb12fd0df86d529a7c7a0fb81 NeptuneRjo <rjo9000@outlook.com> 1652049004 -0400	commit: styled todos
+764f28461f41290bb12fd0df86d529a7c7a0fb81 f17889448466f2bda6438c89d563e92085053444 NeptuneRjo <rjo9000@outlook.com> 1652049019 -0400	checkout: moving from firebase to main
+f17889448466f2bda6438c89d563e92085053444 764f28461f41290bb12fd0df86d529a7c7a0fb81 NeptuneRjo <rjo9000@outlook.com> 1652049023 -0400	merge firebase: Fast-forward
+764f28461f41290bb12fd0df86d529a7c7a0fb81 764f28461f41290bb12fd0df86d529a7c7a0fb81 NeptuneRjo <rjo9000@outlook.com> 1652049034 -0400	checkout: moving from main to styling
+764f28461f41290bb12fd0df86d529a7c7a0fb81 764f28461f41290bb12fd0df86d529a7c7a0fb81 NeptuneRjo <rjo9000@outlook.com> 1652049190 -0400	checkout: moving from styling to user-functionality
+764f28461f41290bb12fd0df86d529a7c7a0fb81 764f28461f41290bb12fd0df86d529a7c7a0fb81 NeptuneRjo <rjo9000@outlook.com> 1652052081 -0400	checkout: moving from user-functionality to firebase
+764f28461f41290bb12fd0df86d529a7c7a0fb81 764f28461f41290bb12fd0df86d529a7c7a0fb81 NeptuneRjo <rjo9000@outlook.com> 1652053172 -0400	checkout: moving from firebase to main
+764f28461f41290bb12fd0df86d529a7c7a0fb81 764f28461f41290bb12fd0df86d529a7c7a0fb81 NeptuneRjo <rjo9000@outlook.com> 1652053196 -0400	checkout: moving from main to user-functionality
+764f28461f41290bb12fd0df86d529a7c7a0fb81 764f28461f41290bb12fd0df86d529a7c7a0fb81 NeptuneRjo <rjo9000@outlook.com> 1652053213 -0400	checkout: moving from user-functionality to firebase
+764f28461f41290bb12fd0df86d529a7c7a0fb81 3712e77397d5973af9b2149debe8840ba55e04e6 NeptuneRjo <rjo9000@outlook.com> 1652066984 -0400	commit: todos are rendered in the todos component, updates completion properly
+3712e77397d5973af9b2149debe8840ba55e04e6 ccc35656977741c88e698cf1ef852dd024a10b8f NeptuneRjo <rjo9000@outlook.com> 1652067022 -0400	commit: styled todos
+ccc35656977741c88e698cf1ef852dd024a10b8f f4a3b596a9e47a5daef4aa21a69cfcf720479df9 NeptuneRjo <rjo9000@outlook.com> 1652067033 -0400	commit: cleanup
+f4a3b596a9e47a5daef4aa21a69cfcf720479df9 df5396fe19c2dfdbadc3fcf92f797ac8dfb5eda6 NeptuneRjo <rjo9000@outlook.com> 1652067056 -0400	commit: passed props to signupform
+df5396fe19c2dfdbadc3fcf92f797ac8dfb5eda6 add1cdbf8b0bf73f18ee1eedc50421499fe89d9c NeptuneRjo <rjo9000@outlook.com> 1652067094 -0400	commit: accepted props
+add1cdbf8b0bf73f18ee1eedc50421499fe89d9c 3a48fa136dd7cee7b28204c9582de1a4bd0cd301 NeptuneRjo <rjo9000@outlook.com> 1652067106 -0400	commit: deleted todo component
+3a48fa136dd7cee7b28204c9582de1a4bd0cd301 f17889448466f2bda6438c89d563e92085053444 NeptuneRjo <rjo9000@outlook.com> 1652067356 -0400	checkout: moving from firebase to signup-page
+f17889448466f2bda6438c89d563e92085053444 3a48fa136dd7cee7b28204c9582de1a4bd0cd301 NeptuneRjo <rjo9000@outlook.com> 1652067359 -0400	merge firebase: Fast-forward
+3a48fa136dd7cee7b28204c9582de1a4bd0cd301 27ea7397e50ee41186ec9896cf2239e7b3f0074a NeptuneRjo <rjo9000@outlook.com> 1652118934 -0400	commit: removed props
+                                                                                                                                                                                                   

@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import useStyles from './styles'
 
-import Todo from './Todo/Todo'
+import { TextField, Stack, Button, Typography } from '@mui/material'
 
-import {
-	TextField,
-	Stack,
-	ButtonGroup,
-	Button,
-	Typography,
-} from '@mui/material'
+import DeleteIcon from '@mui/icons-material/Delete'
 
-import { pushNewTodoToDb, colRef } from '../../firebase.config'
+import { pushNewTodoToDb, colRef, updateTodo, db } from '../../firebase.config'
 
-import { getDocs, query, where } from 'firebase/firestore'
+import { getDocs, query, where, doc, deleteDoc } from 'firebase/firestore'
+
+import './style.css'
 
 const Todos = ({ userId }) => {
 	const classes = useStyles()
@@ -73,7 +69,20 @@ const Todos = ({ userId }) => {
 
 		pushNewTodoToDb(e, todoValue, userId, form)
 		// Causes the useEffect hook to fire again
-		setRerender(rerender + 1)
+		setRerender(Math.random())
+	}
+
+	const handleTodoClick = (todo) => {
+		updateTodo(!todo.completed, todo.id)
+		setRerender(Math.random())
+	}
+
+	const handleDeleteClick = (todoId) => {
+		const docRef = doc(db, 'todos', todoId)
+
+		deleteDoc(docRef).then(() => {
+			setRerender(Math.random())
+		})
 	}
 
 	// Renders the todo section based on what's available
@@ -92,17 +101,19 @@ const Todos = ({ userId }) => {
 			)
 		}
 		return userTodosDisplay.map((todo) => (
-			<Todo todo={todo} setRerender={setRerender} render={rerender} />
+			<div className='todo' onClick={() => handleTodoClick(todo)}>
+				<div
+					className={`todo-item ${todo.completed ? 'completed' : 'Uncomplete'}`}
+				>
+					{todo.todo}
+				</div>
+				<DeleteIcon onClick={() => handleDeleteClick(todo.id)} />
+			</div>
 		))
 	}
 
 	return (
 		<main className={classes.main}>
-			<Typography variant='div' component='div' className={classes.header}>
-				{display}
-				<br />
-				Todos
-			</Typography>
 			<form className={classes.inputContainer} id='form'>
 				<TextField
 					required
@@ -124,15 +135,26 @@ const Todos = ({ userId }) => {
 			<Stack direction='column' spacing={2} className={classes.stack}>
 				{todoMap()}
 			</Stack>
-			<ButtonGroup
-				variant='outlined'
-				aria-label='outlined primary button group'
-				className={classes.buttonGroup}
-			>
-				<Button onClick={() => setDisplay('All')}>All</Button>
-				<Button onClick={() => setDisplay('Uncompleted')}>Uncompleted</Button>
-				<Button onClick={() => setDisplay('Completed')}>Completed</Button>
-			</ButtonGroup>
+			<div className='todos-buttongroup'>
+				<button
+					className={`todos-button ${display === 'All'}`}
+					onClick={() => setDisplay('All')}
+				>
+					All
+				</button>
+				<button
+					className={`todos-button ${display === 'Uncompleted'}`}
+					onClick={() => setDisplay('Uncompleted')}
+				>
+					Uncompleted
+				</button>
+				<button
+					className={`todos-button ${display === 'Completed'}`}
+					onClick={() => setDisplay('Completed')}
+				>
+					Completed
+				</button>
+			</div>
 		</main>
 	)
 }

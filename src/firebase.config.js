@@ -16,6 +16,7 @@ import {
 	createUserWithEmailAndPassword,
 	getAuth,
 	onAuthStateChanged,
+	signOut,
 } from 'firebase/auth'
 
 import { useState, useEffect } from 'react'
@@ -45,16 +46,6 @@ export const updateTodo = async (update, id) => {
 	})
 }
 
-export const updateUserIdOnAuth = () => {
-	onAuthStateChanged(auth, (user) => {
-		if (user) {
-			return user.id
-		} else {
-			return 'default'
-		}
-	})
-}
-
 export const pushNewTodoToDb = (e, todo, userId, form) => {
 	e.preventDefault()
 
@@ -77,4 +68,8 @@ export const signUpUser = (e, email, password, toHome) => {
 	createUserWithEmailAndPassword(auth, email, password).then(() => {
 		toHome()
 	})
+}
+
+export const signOutUser = () => {
+	signOut(auth)
 }

@@ -1,0 +1,44 @@
+.completed {
+	text-decoration: line-through;
+	opacity: 0.9;
+	cursor: pointer;
+}
+
+.incomplete {
+	text-decoration: none;
+	opacity: 1;
+	cursor: pointer;
+}
+
+.todo {
+	width: 100%;
+	cursor: pointer;
+
+	display: flex;
+	justify-content: space-between;
+}
+
+.todo-item {
+	margin-left: 3rem;
+}
+
+.todos-buttongroup {
+	gap: 0.25rem;
+	display: flex;
+}
+
+.todos-button {
+	background: #fff;
+	border: solid 1px #1976d2;
+	padding: 15px;
+	cursor: pointer;
+	border-radius: 8px;
+	color: #1976d2;
+}
+
+.todos-button.true {
+	background: #1976d2;
+	padding: 15px;
+	border: solid 1px #1976d2;
+	color: #fff;
+}

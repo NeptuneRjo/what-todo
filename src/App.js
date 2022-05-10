@@ -1,22 +1,47 @@
 import React, { useState } from 'react'
 import './App.css'
 
-import { SignUpForm, SignIn, Todos } from './components'
+import { SignUpForm, SignIn, Todos, Nav } from './components'
 
 import { HashRouter, Routes, Route } from 'react-router-dom'
 
-const App = () => {
-	const [userId, setUserId] = useState('default')
+import { auth } from './firebase.config'
 
-	return (
-		<HashRouter>
-			<Routes>
-				<Route path='/sign-up' element={<SignUpForm />} />
-				<Route path='/sign-in' element={<SignIn />} />
-				<Route exact path='/' element={<Todos userId={userId} />} />
-			</Routes>
-		</HashRouter>
-	)
+import { onAuthStateChanged } from 'firebase/auth'
+
+const App = () => {
+	const [userId, setUserId] = useState(null)
+	const [userEmail, setUserEmail] = useState(null)
+
+	onAuthStateChanged(auth, (user) => {
+		if (user) {
+			const email = user.email
+			const uid = user.uid
+			setUserId(uid)
+			setUserEmail(email)
+		} else {
+			setUserId('default')
+		}
+	})
+
+	if (userId !== null) {
+		return (
+			<HashRouter>
+				<Nav userId={userId} userEmail={userEmail} setUserId={setUserId} />
+				<Routes>
+					<Route
+						path='/sign-up'
+						element={<SignUpForm setUserId={setUserId} />}
+					/>
+					<Route
+						path='/sign-in'
+						element={<SignIn userId={userId} setUserId={setUserId} />}
+					/>
+					<Route exact path='/' element={<Todos userId={userId} />} />
+				</Routes>
+			</HashRouter>
+		)
+	}
 }
 
 export default App

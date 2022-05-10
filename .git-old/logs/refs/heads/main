@@ -1,0 +1,10 @@
+0000000000000000000000000000000000000000 6c8abb9bfdaf1d535e78614d3c69e295f85ad48c NeptuneRjo <rjo9000@outlook.com> 1651542037 -0400	commit (initial): Initialize project using Create React App
+6c8abb9bfdaf1d535e78614d3c69e295f85ad48c 6c8abb9bfdaf1d535e78614d3c69e295f85ad48c NeptuneRjo <rjo9000@outlook.com> 1651542682 -0400	Branch: renamed refs/heads/master to refs/heads/main
+6c8abb9bfdaf1d535e78614d3c69e295f85ad48c 27fab27a01f6dadf6c60eb31f61978f5749ac095 NeptuneRjo <rjo9000@outlook.com> 1651542689 -0400	commit: setup
+27fab27a01f6dadf6c60eb31f61978f5749ac095 9a9a796cc9ee377396d50cfec9938454e04e1ce6 NeptuneRjo <rjo9000@outlook.com> 1651549991 -0400	merge firebase: Fast-forward
+9a9a796cc9ee377396d50cfec9938454e04e1ce6 e5c662d9aa3499c98ff28287c6dd229ff1ea86aa NeptuneRjo <rjo9000@outlook.com> 1651550093 -0400	commit: added material-ui for component building
+e5c662d9aa3499c98ff28287c6dd229ff1ea86aa cd39bdca46c1df94291ee39c4669bc566424dd90 NeptuneRjo <rjo9000@outlook.com> 1651607610 -0400	merge signup-page: Fast-forward
+cd39bdca46c1df94291ee39c4669bc566424dd90 d00cfdf6089116d02b471a012e4813a27a3b4c31 NeptuneRjo <rjo9000@outlook.com> 1651607652 -0400	commit: added react-router-dom
+d00cfdf6089116d02b471a012e4813a27a3b4c31 1432db7d864838265491c79322a775d1fb9d3eb1 NeptuneRjo <rjo9000@outlook.com> 1651610781 -0400	merge router: Fast-forward
+1432db7d864838265491c79322a775d1fb9d3eb1 f17889448466f2bda6438c89d563e92085053444 NeptuneRjo <rjo9000@outlook.com> 1651610969 -0400	merge signup-page: Fast-forward
+f17889448466f2bda6438c89d563e92085053444 764f28461f41290bb12fd0df86d529a7c7a0fb81 NeptuneRjo <rjo9000@outlook.com> 1652049023 -0400	merge firebase: Fast-forward
