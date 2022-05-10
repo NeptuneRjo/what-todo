@@ -5,9 +5,11 @@ import { Button, TextField, Typography } from '@mui/material'
 
 import { useNavigate } from 'react-router-dom'
 
-import { signUpUser } from '../../firebase.config'
+import { auth } from '../../firebase.config'
 
-const SignUp = () => {
+import { createUserWithEmailAndPassword } from 'firebase/auth'
+
+const SignUp = ({ setUserId }) => {
 	// Initializes the styles and navigation
 	const classes = useStyles()
 	let navigate = useNavigate()
@@ -17,7 +19,12 @@ const SignUp = () => {
 
 	// Acts as liaison for the sign up function
 	const callSignUpFunction = (e) => {
-		signUpUser(e, emailValue, passwordValue, navigate('/'))
+		e.preventDefault()
+
+		createUserWithEmailAndPassword(auth, emailValue, passwordValue).then(() => {
+			navigate('/')
+			setUserId(null)
+		})
 	}
 
 	return (

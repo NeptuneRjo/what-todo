@@ -27,7 +27,7 @@ const Navbar = ({ userId, userEmail, setUserId }) => {
 						</Link>
 					</Button>
 					{userId === 'default' && (
-						<div>
+						<div className={classes.user}>
 							<Button color='inherit'>
 								<Link to='/sign-in' className={classes.link}>
 									Login
@@ -41,7 +41,7 @@ const Navbar = ({ userId, userEmail, setUserId }) => {
 						</div>
 					)}
 					{userId !== 'default' && (
-						<div>
+						<div className={classes.user}>
 							<Typography
 								variant='div'
 								component='div'
