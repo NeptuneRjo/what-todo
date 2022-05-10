@@ -9,3 +9,22 @@
 	opacity: 1;
 	cursor: pointer;
 }
+
+.todos-buttongroup {
+	gap: 0.25rem;
+	display: flex;
+}
+
+.todos-button {
+	background: #fff;
+	border: solid 1px #0288d1;
+	padding: 15px;
+	cursor: pointer;
+	border-radius: 8px;
+}
+
+.todos-button.true {
+	background: #0288d1;
+	padding: 15px;
+	border: solid 1px #0288d1;
+}

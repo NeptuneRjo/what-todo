@@ -7,6 +7,9 @@ import {
 	ButtonGroup,
 	Button,
 	Typography,
+	ToggleButton,
+	ToggleButtonGroup,
+	styled,
 } from '@mui/material'
 
 import { pushNewTodoToDb, colRef, updateTodo } from '../../firebase.config'
@@ -73,7 +76,7 @@ const Todos = ({ userId }) => {
 
 		pushNewTodoToDb(e, todoValue, userId, form)
 		// Causes the useEffect hook to fire again
-		setRerender(rerender + 1)
+		setRerender(Math.random())
 	}
 
 	const handleTodoClick = (todo) => {
@@ -99,7 +102,7 @@ const Todos = ({ userId }) => {
 		return userTodosDisplay.map((todo) => (
 			<div className='todo' onClick={() => handleTodoClick(todo)}>
 				<div
-					className={`todo-item ${todo.completed ? 'completed' : 'incomplete'}`}
+					className={`todo-item ${todo.completed ? 'completed' : 'Uncomplete'}`}
 				>
 					{todo.todo}
 				</div>
@@ -110,9 +113,7 @@ const Todos = ({ userId }) => {
 	return (
 		<main className={classes.main}>
 			<Typography variant='div' component='div' className={classes.header}>
-				{display}
-				<br />
-				Todos
+				{display} Todos
 			</Typography>
 			<form className={classes.inputContainer} id='form'>
 				<TextField
@@ -135,7 +136,7 @@ const Todos = ({ userId }) => {
 			<Stack direction='column' spacing={2} className={classes.stack}>
 				{todoMap()}
 			</Stack>
-			<ButtonGroup
+			{/* <ButtonGroup
 				variant='outlined'
 				aria-label='outlined primary button group'
 				className={classes.buttonGroup}
@@ -143,7 +144,48 @@ const Todos = ({ userId }) => {
 				<Button onClick={() => setDisplay('All')}>All</Button>
 				<Button onClick={() => setDisplay('Uncompleted')}>Uncompleted</Button>
 				<Button onClick={() => setDisplay('Completed')}>Completed</Button>
-			</ButtonGroup>
+			</ButtonGroup> */}
+			{/* <ToggleButtonGroup aria-label='todo display' exclusive color='primary'>
+				<CustomToggleButton
+					aria-label='all todos'
+					onClick={() => setDisplay('All')}
+				>
+					All
+				</CustomToggleButton>
+				<CustomToggleButton
+					aria-label='Uncomplete todos'
+					onClick={() => setDisplay('Uncompleted')}
+				>
+					Uncomplete
+				</CustomToggleButton>
+				<CustomToggleButton
+					aria-label='Completed todos'
+					onClick={() => setDisplay('Completed')}
+				>
+					Completed
+				</CustomToggleButton>
+			</ToggleButtonGroup> */}
+
+			<div className='todos-buttongroup'>
+				<button
+					className={`todos-button ${display === 'All'}`}
+					onClick={() => setDisplay('All')}
+				>
+					All
+				</button>
+				<button
+					className={`todos-button ${display === 'Uncompleted'}`}
+					onClick={() => setDisplay('Uncompleted')}
+				>
+					Uncompleted
+				</button>
+				<button
+					className={`todos-button ${display === 'Completed'}`}
+					onClick={() => setDisplay('Completed')}
+				>
+					Completed
+				</button>
+			</div>
 		</main>
 	)
 }
