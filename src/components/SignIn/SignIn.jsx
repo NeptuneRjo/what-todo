@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import useStyles from './styles'
 
-import { Button, TextField, Typography } from '@mui/material'
+import { Button, TextField, Typography, Container } from '@mui/material'
 
 import { signInWithEmailAndPassword } from 'firebase/auth'
 
@@ -26,7 +26,16 @@ const SignIn = ({ setUserId }) => {
 	}
 
 	return (
-		<main className={classes.main}>
+		<Container
+			className={classes.container}
+			size='sm'
+			sx={{
+				display: 'flex',
+				justifyContent: 'center',
+				alignItems: 'center',
+				flexDirection: 'column',
+			}}
+		>
 			<Typography variant='body' component='div' className={classes.header}>
 				Sign In:
 			</Typography>
@@ -63,7 +72,7 @@ const SignIn = ({ setUserId }) => {
 					</Button>
 				</div>
 			</form>
-		</main>
+		</Container>
 	)
 }
 
