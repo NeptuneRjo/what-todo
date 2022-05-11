@@ -11,9 +11,10 @@ export default makeStyles(() => ({
 		display: 'flex',
 		justifyContent: 'center',
 		alignItems: 'center',
-		padding: '.75rem',
+		padding: '.75rem 5px',
 		paddingBottom: '1rem',
 		fontWeight: 'bold',
+		fontSize: '0.8125rem',
 	},
 	link: {
 		textDecoration: 'none',
@@ -27,5 +28,11 @@ export default makeStyles(() => ({
 		height: '100%',
 		justifyContent: 'center',
 		alignItems: 'center',
+	},
+	home: {
+		textDecoration: 'none',
+		color: 'inherit',
+		fontWeight: 'bold',
+		fontSize: '1.1em',
 	},
 }))

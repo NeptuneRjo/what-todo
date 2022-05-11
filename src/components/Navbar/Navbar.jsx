@@ -21,23 +21,20 @@ const Navbar = ({ userId, userEmail, setUserId }) => {
 		<Box sx={{ flexGrow: 1 }}>
 			<AppBar position='static'>
 				<Toolbar className={classes.toolbar}>
-					<Typography variant='div' component='div' className={classes.text}>
-						What Todo
-					</Typography>
+					<Button color='inherit' size='small'>
+						<Link to='/' className={classes.home}>
+							What Todo
+						</Link>
+					</Button>
 					<div className={classes.links}>
-						<Button color='inherit'>
-							<Link to='/' className={classes.link}>
-								Home
-							</Link>
-						</Button>
 						{userId === 'default' && (
 							<div className={classes.user}>
-								<Button color='inherit'>
+								<Button color='inherit' size='small'>
 									<Link to='/sign-in' className={classes.link}>
 										Login
 									</Link>
 								</Button>
-								<Button color='inherit'>
+								<Button color='inherit' size='small'>
 									<Link to='/sign-up' className={classes.link}>
 										Sign Up
 									</Link>
@@ -58,6 +55,8 @@ const Navbar = ({ userId, userEmail, setUserId }) => {
 									onClick={() => {
 										signOutUser()
 									}}
+									size='small'
+									className={classes.signOut}
 								>
 									Sign Out
 								</Button>
