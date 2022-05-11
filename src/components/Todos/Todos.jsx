@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import useStyles from './styles'
 
-import { TextField, Stack, Button, Typography } from '@mui/material'
+import { TextField, Stack, Button, Typography, Container } from '@mui/material'
 
 import DeleteIcon from '@mui/icons-material/Delete'
 
@@ -113,7 +113,16 @@ const Todos = ({ userId }) => {
 	}
 
 	return (
-		<main className={classes.main}>
+		<Container
+			maxWidth='sm'
+			sx={{
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+				flexDirection: 'column',
+				height: '100vh',
+			}}
+		>
 			<form className={classes.inputContainer} id='form'>
 				<TextField
 					required
@@ -155,7 +164,7 @@ const Todos = ({ userId }) => {
 					Completed
 				</button>
 			</div>
-		</main>
+		</Container>
 	)
 }
 

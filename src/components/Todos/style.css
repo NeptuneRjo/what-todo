@@ -19,7 +19,7 @@
 }
 
 .todo-item {
-	margin-left: 3rem;
+	margin-left: 1rem;
 }
 
 .todos-buttongroup {
@@ -30,7 +30,7 @@
 .todos-button {
 	background: #fff;
 	border: solid 1px #1976d2;
-	padding: 15px;
+	padding: 16px;
 	cursor: pointer;
 	border-radius: 8px;
 	color: #1976d2;
