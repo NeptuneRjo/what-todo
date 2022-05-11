@@ -6,17 +6,21 @@ export default makeStyles(() => ({
 		justifyContent: 'space-between',
 		alignItems: 'center',
 	},
-	email: {
+	text: {
 		height: '24.5px',
 		display: 'flex',
 		justifyContent: 'center',
 		alignItems: 'center',
 		padding: '.75rem',
 		paddingBottom: '1rem',
+		fontWeight: 'bold',
 	},
 	link: {
 		textDecoration: 'none',
 		color: 'inherit',
+	},
+	links: {
+		display: 'flex',
 	},
 	user: {
 		display: 'flex',
