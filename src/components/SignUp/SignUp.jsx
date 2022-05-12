@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import useStyles from './styles'
 
-import { Button, TextField, Typography } from '@mui/material'
+import { Button, TextField, Typography, Container } from '@mui/material'
 
 import { useNavigate } from 'react-router-dom'
 
@@ -27,7 +27,16 @@ const SignUp = ({ setUserId }) => {
 	}
 
 	return (
-		<main className={classes.main}>
+		<Container
+			className={classes.container}
+			size='sm'
+			sx={{
+				display: 'flex',
+				justifyContent: 'center',
+				alignItems: 'center',
+				flexDirection: 'column',
+			}}
+		>
 			<Typography variant='body' component='div' className={classes.header}>
 				Sign Up:
 			</Typography>
@@ -65,7 +74,7 @@ const SignUp = ({ setUserId }) => {
 					<Button variant='outlined'>Cancel</Button>
 				</div>
 			</form>
-		</main>
+		</Container>
 	)
 }
 
