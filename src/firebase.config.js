@@ -61,15 +61,3 @@ export const pushNewTodoToDb = (e, todo, userId, form) => {
 		form.reset()
 	})
 }
-
-export const signUpUser = (e, email, password, toHome) => {
-	e.preventDefault()
-
-	createUserWithEmailAndPassword(auth, email, password).then(() => {
-		toHome()
-	})
-}
-
-export const signOutUser = () => {
-	signOut(auth)
-}
