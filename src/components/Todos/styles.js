@@ -9,6 +9,7 @@ export default makeStyles(() => ({
 	},
 	input: {
 		color: '#fff',
+		background: 'transparent',
 	},
 	stack: {
 		display: 'flex',
@@ -20,6 +21,7 @@ export default makeStyles(() => ({
 		width: '350px',
 		margin: '1rem 0',
 		boxShadow: '0px 0px 6px #0000008c',
+		background: '#fff',
 	},
 	buttonGroup: {
 		width: '300px',

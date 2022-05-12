@@ -28,7 +28,7 @@
 }
 
 .todos-button {
-	background: #fff;
+	background: transparent;
 	border: solid 1px #1976d2;
 	padding: 16px;
 	cursor: pointer;
@@ -40,5 +40,5 @@
 	background: #1976d2;
 	padding: 15px;
 	border: solid 1px #1976d2;
-	color: #fff;
+	color: #e7e6e6;
 }
