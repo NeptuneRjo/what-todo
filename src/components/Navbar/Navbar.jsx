@@ -18,7 +18,7 @@ const Navbar = ({ userId, userEmail, setUserId }) => {
 	}
 
 	return (
-		<Box sx={{ flexGrow: 1, marginBottom: '1rem' }}>
+		<Box sx={{ flexGrow: 1, marginBottom: '5px', height: '10vh' }}>
 			<AppBar position='static'>
 				<Toolbar className={classes.toolbar}>
 					<Button color='inherit' size='small'>
