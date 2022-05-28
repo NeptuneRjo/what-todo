@@ -120,7 +120,10 @@ const Todos = ({ userId }) => {
 				alignItems: 'center',
 				justifyContent: 'center',
 				flexDirection: 'column',
-				height: '100vh',
+				height: '800px',
+				background: '#fff',
+				marginBottom: '5px',
+				boxShadow: '0px 0px 8px rgba(0, 0, 0, .3)',
 			}}
 		>
 			<form className={classes.inputContainer} id='form'>
