@@ -29,17 +29,19 @@ const App = () => {
 			<HashRouter>
 				<div className='app-main'>
 					<Nav userId={userId} userEmail={userEmail} setUserId={setUserId} />
-					<Routes>
-						<Route
-							path='/sign-up'
-							element={<SignUpForm setUserId={setUserId} />}
-						/>
-						<Route
-							path='/sign-in'
-							element={<SignIn userId={userId} setUserId={setUserId} />}
-						/>
-						<Route exact path='/' element={<Todos userId={userId} />} />
-					</Routes>
+					<div className='app-content'>
+						<Routes>
+							<Route
+								path='/sign-up'
+								element={<SignUpForm setUserId={setUserId} />}
+							/>
+							<Route
+								path='/sign-in'
+								element={<SignIn userId={userId} setUserId={setUserId} />}
+							/>
+							<Route exact path='/' element={<Todos userId={userId} />} />
+						</Routes>
+					</div>
 				</div>
 			</HashRouter>
 		)
