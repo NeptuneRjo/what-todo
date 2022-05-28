@@ -1,6 +1,6 @@
 ## What-Todo
 
-What Todo is a todo-list web application that utilizes `Firebase` for the backend and `MaterialUI` / `React` for the frontend.
+What-Todo is a todo-list web application that utilizes `Firebase` for the backend and `MaterialUI` / `React` for the frontend.
 
 ## Demo Link:
 
@@ -15,8 +15,7 @@ Access my site at [https://neptunerjo.github.io/what-todo/](https://neptunerjo.g
 
 ## Screenshots
 
-![default user todos](screenshots/default.png)
-![Test account todos](screenshots/test.png)
+![default user todos](screenshots/home.png)
 
 ## Technologies
 
