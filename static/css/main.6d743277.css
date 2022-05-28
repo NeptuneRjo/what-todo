@@ -1,2 +1,0 @@
-*{margin:0;padding:0}.app-main{background:#e7e6e6}.completed{cursor:pointer;opacity:.9;text-decoration:line-through}.incomplete{cursor:pointer;opacity:1;text-decoration:none}.todo{cursor:pointer;display:flex;justify-content:space-between;width:100%}.todo-item{margin-left:1rem}.todos-buttongroup{display:flex;gap:.25rem}.todos-button{background:transparent;border:1px solid #1976d2;border-radius:8px;color:#1976d2;cursor:pointer;padding:16px}.todos-button.true{background:#1976d2;border:1px solid #1976d2;color:#e7e6e6;padding:15px}
-/*# sourceMappingURL=main.6d743277.css.map*/
