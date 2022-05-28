@@ -2,7 +2,7 @@ import { makeStyles } from '@mui/styles'
 
 export default makeStyles(() => ({
 	container: {
-		height: '100vh',
+		height: '90vh',
 		background: '#e7e6e6',
 	},
 	header: {
