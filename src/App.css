@@ -5,4 +5,11 @@
 
 .app-main {
 	background: #e7e6e6;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.app-content {
+	height: 90vh;
 }
