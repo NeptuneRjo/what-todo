@@ -1,38 +1,21 @@
-## What-Todo
+# What-todo (Frontend)
 
-What-Todo is a todo-list web application that utilizes `Firebase` for the backend and `MaterialUI` / `React` for the frontend.
+A simple frontend React/Firescript application used to create, edit, and delete personal todos. Styled with MaterialUI.
 
-## Demo Link:
+Visit the live app [here](https://neptunerjo.github.io/what-todo/)
 
-Access my site at [https://neptunerjo.github.io/what-todo/](https://neptunerjo.github.io/what-todo/)
+![Signin and create a todo](todo.gif)
 
-## Table of Content:
+# Installation and Setup
 
-- [Screenshots](#screenshots)
-- [Technologies](#technologies)
-- [Setup](#setup)
-- [Approach](#approach)
+- Clone this repository, or download the zip file and open it with your preferred IDE
+- Run `npm install` to install required dependencies
+- To start the server, run `npm start` and visit the app at `http://localhost:3000`
 
-## Screenshots
+# Reflection
 
-![default user todos](screenshots/home.png)
+What todo is a personal-learning project built to coincide with [The Odin Project's](https://www.theodinproject.com/) Firebase lessons. The goal of this project was to familiarize myself with Firebase and reinforcing my React skills.
 
-## Technologies
+The main challenge with this build was learning Firebase with no prior BaaS experience. Figuring out authorization and user-specific data was a little tricky, but this project definetly set me up for learning Node in the future.
 
-Built with `React`, `CSS3`, `MaterialUI`, and `Firebase`.
-
-## Setup
-
-- Download or clone the repository
-- Run `npm install`
-- Run `npm start` to view a local version on `http://localhost:3000/`
-
-## Approach
-
-Google's `Firebase` was used to supply the back-end services, storing both the database and user data.
-Todos can be added, deleted, and marked for completion on the fly for any unique user.
-
-The todos are collected based on the id of the current user (there is a default, anonymous value)
-and the UI that allows users to sort through todos based on whether is complete or not is handled in `React` to minimize data collection.
-
-In order to edit the todo data easier, `UUIDV4` was used to create unique id values for each todo created. By using UUID, I can store the id of the object as a value, so it can be accessed without making any additional calls.
+At the end of the day, the main technologies used to create this project are React, Firebase, React-Router, and MaterialUI. `create-react-app` boilerplate was used to minimize setup time.
